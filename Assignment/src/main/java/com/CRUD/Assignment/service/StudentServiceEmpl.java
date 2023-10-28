@@ -5,6 +5,8 @@ import com.CRUD.Assignment.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class StudentServiceEmpl implements StudentSevice{
     private StudentRepository studentRepository;
@@ -20,6 +22,23 @@ public class StudentServiceEmpl implements StudentSevice{
         System.out.println(tempStudent.getEmail());
         System.out.println(tempStudent.getId());
         return tempStudent;
+
+    }
+
+    @Override
+    public Student findById(int theId) {
+        return null;
+    }
+
+    @Override
+    public List<Student> fintAllAtudent() {
+      //List<Student> tempStudent=  studentRepository.findAll();
+      return studentRepository.findAll();
+        //return tempStudent;
+    }
+
+    @Override
+    public void deleteStudent(int theId) {
 
     }
 }

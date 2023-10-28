@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-//@RestController
+import java.util.List;
+
+@RestController
 @Controller
 public class StudentController {
     @Autowired
@@ -17,7 +19,11 @@ public class StudentController {
         this.studentSevice = studentSevice;
     }
 
-    
+    @GetMapping("/home")
+    public String home(){
+        return "/home";
+
+    }
     @GetMapping("/registration")
     public String studentGet(Model theModel){
       Student tempStudent1=  new Student();
@@ -32,4 +38,11 @@ public class StudentController {
 
 
     }
+    @GetMapping("/studentget")
+    public List<Student> findAllStudent(){
+       //List<Student> tempStudent= studentSevice.fintAllAtudent();
+       return studentSevice.fintAllAtudent();
+    }
+
+
 }
